@@ -19,9 +19,10 @@
 <body>
     <div id="app">
         @include('partials.navbar')
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
+        @include('sweetalert::alert')
     </div>
 </body>
 </html>
