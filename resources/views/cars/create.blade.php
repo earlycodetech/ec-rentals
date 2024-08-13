@@ -10,23 +10,23 @@
                 <form action="" method="post">
                     <div class="mb-3">
                         <label for="" class="form-label">Name</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Model</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="model" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Price</label>
-                        <input type="number" class="form-control" required>
+                        <input type="number" name="price" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Quantity</label>
-                        <input type="number" class="form-control" required>
+                        <input type="number" name="quantity" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Cover</label>
-                        <input type="file" class="form-control" required>
+                        <input type="file" name="image" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
