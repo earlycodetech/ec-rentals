@@ -7,7 +7,9 @@
             </div>
 
             <div class="card-body">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('cars.store') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    
                     <div class="mb-3">
                         <label for="" class="form-label">Name</label>
                         <input type="text" name="name" class="form-control" required>
