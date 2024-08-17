@@ -47,6 +47,7 @@ class CarsController extends Controller
     }
 
     public function all_cars()  {
-        return  view('cars.all-cars');
+        $cars = Car::all();
+        return  view('cars.all-cars', compact('cars'));
     }
 }
