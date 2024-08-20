@@ -11,7 +11,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('cars')->group(function () {
+Route::prefix('cars')->middleware(['auth', 'owner'])->group(function () {
    Route::get('/create', [CarsController::class, 'create_car'])->name('cars.create');
    Route::post('/create', [CarsController::class, 'store_car'])->name('cars.store');
 
