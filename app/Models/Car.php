@@ -28,4 +28,10 @@ class Car extends Model
         'price' => "decimal:2",
         'quantity' => "integer"
     ];
+
+    
+    public function rentals()  {
+        // return $this->hasOne(Rental::class, 'car_id');
+        return $this->hasMany(Rental::class, 'car_id');
+    }
 }

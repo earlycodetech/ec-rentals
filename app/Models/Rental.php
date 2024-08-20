@@ -13,6 +13,7 @@ class Rental extends Model
         'user_id',
         'car_id',
         'name',
+        'price',
         'phone',
         'quantity',
         'return_date',
@@ -23,5 +24,15 @@ class Rental extends Model
         'price' => "decimal:2",
         'return_date' => 'date',
         'is_returned' => "boolean"
-    ]
+    ];
+
+
+    public function car()  {
+        return $this->belongsTo(Car::class, 'car_id');
+    }
+
+
+    public function user()  {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

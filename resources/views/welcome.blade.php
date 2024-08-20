@@ -25,7 +25,7 @@
                                 </p>
 
                                 <div class="text-end">
-                                    <a href="#" class="btn btn-dark rounded-0">
+                                    <a href="{{ route('rent.form', ['id' => $car->id]) }}" class="btn btn-dark rounded-0">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </div>

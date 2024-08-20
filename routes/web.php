@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RentalController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,4 +22,11 @@ Route::prefix('cars')->middleware(['auth', 'owner'])->group(function () {
    Route::patch('/{id}/update', [CarsController::class, 'update_car'])->name('update.car');
 
    Route::delete('/{id}/delete', [CarsController::class, 'delete_car'])->name('delete.car');
+});
+
+
+Route::middleware('auth')->group(function () {
+   Route::get('{id}/rent-a-car', [RentalController::class, 'rent_form'])->name('rent.form');
+   Route::post('{id}/rent-a-car', [RentalController::class, 'submit_rent_form'])->name('rent.form.submit');
+   Route::get('my-rentals', [RentalController::class, 'show_user_rentals'])->name('show.user.rentals');
 });

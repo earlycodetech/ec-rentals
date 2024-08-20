@@ -57,6 +57,10 @@
                                 <a href="{{ route('cars.all') }}" class="dropdown-item">
                                     All Cars
                                 </a>
+                            @else
+                                <a href="{{ route('show.user.rentals') }}" class="dropdown-item">
+                                    My Rentals
+                                </a>
                             @endif
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
