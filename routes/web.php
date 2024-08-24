@@ -22,6 +22,9 @@ Route::prefix('cars')->middleware(['auth', 'owner'])->group(function () {
    Route::patch('/{id}/update', [CarsController::class, 'update_car'])->name('update.car');
 
    Route::delete('/{id}/delete', [CarsController::class, 'delete_car'])->name('delete.car');
+
+
+   Route::get('show-all-rentals', [RentalController::class, 'admin_show_rentals'])->name('admin.show.all.rentals');
 });
 
 

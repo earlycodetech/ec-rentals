@@ -66,4 +66,12 @@ class RentalController extends Controller
     public function show_user_rentals() {
         return view('rent.user-rentals');
     }
+
+
+    // ADMIN FUNCTIONS
+    public function admin_show_rentals()
+    {
+        $rentals = Rental::latest()->paginate(10);
+        return view('admin.rentals', compact('rentals'));
+    }
 }

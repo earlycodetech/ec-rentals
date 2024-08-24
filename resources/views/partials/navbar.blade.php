@@ -57,6 +57,9 @@
                                 <a href="{{ route('cars.all') }}" class="dropdown-item">
                                     All Cars
                                 </a>
+                                <a href="{{ route('admin.show.all.rentals') }}" class="dropdown-item">
+                                    All Rentals
+                                </a>
                             @else
                                 <a href="{{ route('show.user.rentals') }}" class="dropdown-item">
                                     My Rentals
