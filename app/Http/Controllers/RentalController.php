@@ -74,4 +74,14 @@ class RentalController extends Controller
         $rentals = Rental::latest()->paginate(10);
         return view('admin.rentals', compact('rentals'));
     }
+
+    public function update_rental($id, $type) {
+        $rental = Rental::findOrFail($id);
+        Rental::where('id', $id)->update([
+             'is_returned' => ($type == 'enable')
+        ]);
+
+        Alert::success('Success', "Updated Successfully");
+        return back();
+    }
 }

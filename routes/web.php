@@ -25,6 +25,10 @@ Route::prefix('cars')->middleware(['auth', 'owner'])->group(function () {
 
 
    Route::get('show-all-rentals', [RentalController::class, 'admin_show_rentals'])->name('admin.show.all.rentals');
+   Route::patch('update-rental/{id}/{type}', [RentalController::class, 'update_rental'])->name('update.rental')->where([
+      'id' => "[0-9]+",
+      'type' => "enable|disable"
+   ]);
 });
 
 
@@ -33,3 +37,7 @@ Route::middleware('auth')->group(function () {
    Route::post('{id}/rent-a-car', [RentalController::class, 'submit_rent_form'])->name('rent.form.submit');
    Route::get('my-rentals', [RentalController::class, 'show_user_rentals'])->name('show.user.rentals');
 });
+
+
+Route::get('contact', [PageController::class, 'contact'])->name('contact.page');
+Route::post('contact', [PageController::class, 'send_message'])->name('contact.send');

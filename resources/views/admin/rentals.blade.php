@@ -26,15 +26,15 @@
                                             {{ $rent->user->name }}
                                         </td>
                                         <td>
-                                            {{ $rent->car->name . ' '. $rent->car->model }}
+                                            {{ $rent->car->name . ' ' . $rent->car->model }}
                                         </td>
                                         <td>{{ $rent->quantity }}</td>
                                         <td>{{ number_format($rent->price) }}</td>
                                         <td>
                                             @if ($rent->is_returned)
-                                               <span class="fa-solid fa-check-circle text-success"></span> 
-                                               @else
-                                               <span class="fa-solid fa-times-circle text-danger"></span> 
+                                                <span class="fa-solid fa-check-circle text-success"></span>
+                                            @else
+                                                <span class="fa-solid fa-times-circle text-danger"></span>
                                             @endif
                                         </td>
 
@@ -47,7 +47,27 @@
 
                                         {{-- Option Column --}}
                                         <td>
-                                            
+                                            @if (!$rent->is_returned)
+                                                <form
+                                                    action="{{ route('update.rental', [
+                                                        'id' => $rent->id,
+                                                        'type' => 'enable',
+                                                    ]) }}"
+                                                    onsubmit="return confirm('Are you sure?')" method="POST">
+                                                    @csrf @method('PATCH')
+                                                    <button class="btn btn-primary btn-sm">Update Car Returned</button>
+                                                </form>
+                                            @else
+                                                <form
+                                                    action="{{ route('update.rental', [
+                                                        'id' => $rent->id,
+                                                        'type' => 'disable',
+                                                    ]) }}"
+                                                    onsubmit="return confirm('Are you sure?')" method="POST">
+                                                    @csrf @method('PATCH')
+                                                    <button class="btn btn-danger btn-sm">Revert Status</button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty
